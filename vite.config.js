@@ -26,5 +26,8 @@ export default defineConfig(({ command }) => {
     server: {
       open: true,
     },
+    define: {
+      global: 'window',
+    },
   };
 });

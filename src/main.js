@@ -1,27 +1,26 @@
 import './css/styles.css';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import 'izitoast/dist/css/iziToast.min.css';
-import 'css-loader/css-loader.css';
 
 import SimpleLightbox from 'simplelightbox';
 import iziToast from 'izitoast';
 
 import { getImagesByQuery } from './js/pixabay-api.js';
-
 import {
   createGallery,
   clearGallery,
   showLoader,
   hideLoader,
-} from './render-functions.js';
+} from './js/render-functions.js';
 
 const form = document.querySelector('.form');
 const input = form.elements['search-text'];
 
 let lightbox = null;
 
-form.addEventListener('submit', async e => {
-  e.preventDefault();
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+
   const query = input.value.trim();
 
   if (!query) {
@@ -42,7 +41,8 @@ form.addEventListener('submit', async e => {
     if (data.hits.length === 0) {
       iziToast.info({
         title: 'No Results',
-        message: 'Sorry, no images found for this query.',
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
         position: 'topRight',
       });
     } else {
