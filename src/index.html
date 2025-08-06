@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Image Search</title>
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/simplelightbox/dist/simple-lightbox.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="node_modules/izitoast/dist/css/iziToast.min.css"
+    />
+    <link rel="stylesheet" href="node_modules/css-loader/css-loader.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form class="form">
+        <input
+          type="text"
+          name="search-text"
+          autocomplete="off"
+          placeholder="Enter search query"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="loader hidden"></div>
+
+      <ul class="gallery"></ul>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
