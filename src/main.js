@@ -2,7 +2,6 @@ import './css/styles.css';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import 'izitoast/dist/css/iziToast.min.css';
 
-import SimpleLightbox from 'simplelightbox';
 import iziToast from 'izitoast';
 
 import { getImagesByQuery } from './js/pixabay-api.js';
@@ -15,8 +14,6 @@ import {
 
 const form = document.querySelector('.form');
 const input = form.elements['search-text'];
-
-let lightbox = null;
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
@@ -47,14 +44,6 @@ form.addEventListener('submit', async event => {
       });
     } else {
       createGallery(data.hits);
-      if (lightbox) {
-        lightbox.refresh();
-      } else {
-        lightbox = new SimpleLightbox('.gallery a', {
-          captionsData: 'alt',
-          captionDelay: 250,
-        });
-      }
     }
   } catch (error) {
     iziToast.error({
